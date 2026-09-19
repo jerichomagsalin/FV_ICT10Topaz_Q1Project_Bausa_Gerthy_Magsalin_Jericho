@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICT Project (placeholder)</title>
+    <title>Receipt Generator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
-
+            background-color: #c6c7cb;
         }
 
         h1 {
@@ -18,20 +18,58 @@
         p {
 
         }
+
+        a {
+            float: right;
+            color: white;
+            vertical-align: middle;
+        }
+
+        button {
+            float: right;
+        }
     </style>
 </head>
 <body>
-    <nav class="container-fluid bg-primary" style="height:100px">
-        Sample Text
+    <nav class="container-fluid bg-primary" style="height:50px">
+        <a href="page2.html">SKU Generator</a>
     </nav>
-    <div class="container-fluid" style="height:400px">
-        <div style="border-radius:5px; width:200px; height:300px; margin:auto" class="bg-warning">
+    <div style="border-radius:5px; margin:auto" class="container bg-warning">
             Input the elements here
-        </div>
+        <button class="btn btn-success" onclick="document.location='page2.html'">SKU Generator</button>
+        <form action="">
+            <input type="text" id="input1" placeholder="Enter a number">
+            <br>
+            <input type="text" id="input2" placeholder="Enter a number">
+            <br>
+            <button type="button" py-click="adding_numbers">Solve</button>
+            <input type="checkbox" id="item1" value="129">
+                <label for="item1" id="label1">Spanish Latte</label>
+            
+            <p id="output1"></p>
+            <br><br>
+            
+            <label for="Coffee">Coffee</label>
+            <br>
+            <select id="coffee">
+                <option value="0">Select here</option>
+                <option value="99">Americano</option>
+                <option value="129">Spanish Latte</option>
+                <option value="159">Affogato</option>
+            </select>
+            <br>
+            <input type="radio" id="regular" name="size" value="0"
+            checked> <label for="regular"> Regular (+Php0)</label>
+            <br>
+            <input type="radio" id="large" name="size" value="0"
+            checked> <label for="regular"> Large (+Php30)</label>
+
+            <br>
+            <button type="button" py-click="create_order">Create Order</button>
+        </form>
     </div>
-    <div class="container-fluid bg-primary" style="height:100px">
-        Sample Text
-    </div>
+    <div id="output1"></div>
+    <script type="pyscript" src="main.py"></script>
 
     <!-- I do not know how to format the div to the background-->
 </body>
