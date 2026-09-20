@@ -1,0 +1,24 @@
+
+/* background activation css */
+
+body {
+
+    /* external reference https://c0.wallpaperflare.com/preview/943/792/25/cook-islands-avarua-district-miami-miami-colours.jpg used */
+    background-image: url('./images/backgroundimage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* background activation css */
+
+/* form css */
+
+.divformat {
+    border-radius: 5px;
+    background-color: #d1e366;
+    opacity: 0.8;
+    padding: 25px;
+    margin: auto;
+    justify-content: center;
+    
+}
