@@ -110,7 +110,7 @@
                         <td style="text-align:center;">Refreshing liquid</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" id="m_shake" value="75"><label for="m_shake">Mango Shake</td>
+                        <td><input type="checkbox" id="m_shake" value="75"><label for="m_shake">Mango Shake</label></td>
                         <td>75 Php</td>
                         <td style="text-align:center;">The fruit is refreshing</td>
                     </tr>
@@ -129,7 +129,7 @@
             <br>
 
             <div class="d-grid">
-            <button class="btn btn-primary" type="button" py-click="initial_order">Create order</button>
+            <button id="createOrderBtn" class="btn btn-primary" type="button">Create order</button>
             </div>
             <br>
 
@@ -140,15 +140,46 @@
             <hr>
 
             <!--sec receipt-->
-            <h3 id="initialorder" style="text-align:center; display:none" >Receipt</h3>
-    
 
-            <div id="initialorder">Receipt</div>
+            <h3 id="subtotal" style="text-align:center;">Receipt</h3>
             
         </form>
-    </div>
 
-    <script type="pyscript" src="main.py"></script>
+            <h3 id="Showntext" style="text-align:center;">Receipt</h3>
+
+            <div id="initialorder">Total</div>
+    </div>
+    
+    <script>
+    // Calculate and show receipt using plain JavaScript
+        document.getElementById('createOrderBtn').addEventListener('click', function () {
+        const ids = ['popsicle','c_juice','m_shake','hc_sandwich','hotdog'];
+        let subtotal = 0;
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && el.checked) {
+                subtotal += Number(el.value) || 0;
+            }
+        });
+            const target = document.getElementById('initialorder');
+
+            if (subtotal === 0) {
+                target.innerHTML = '<div style="text-align:center; color:#666;">No items selected — subtotal is 0.00 Php</div>';
+                return;
+            }
+
+            const vat = subtotal * 0.12;
+            const total = subtotal + vat;
+
+            target.innerHTML = `
+                <div style="text-align:center;">
+                    <div>Subtotal: ${subtotal.toFixed(2)} Php</div>
+                    <div>VAT (12%): ${vat.toFixed(2)} Php</div>
+                    <div style="font-weight:700; margin-top:6px;">Total: ${total.toFixed(2)} Php</div>
+                </div>
+            `;
+    });
+    </script>
 
     <!-- Part 2 : Form content -->
 
