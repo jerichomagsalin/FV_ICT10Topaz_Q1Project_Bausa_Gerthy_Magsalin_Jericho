@@ -106,14 +106,13 @@
             <br>
 
             <div class="d-grid">
-                <input type="text">
-                <!-- issue letters can be placed -->
+                <input type="text" id="quantity" inputmode="numeric" pattern="[0-9]*" placeholder="0">
             </div>
 
             <br>
 
             <div class="d-grid">
-            <button class="btn btn-primary" type="button" py-click="create_sku">Generate SKU</button>
+            <button id="generateSkuBtn" class="btn btn-primary" type="button">Generate SKU</button>
             </div>
 
             <br>
@@ -122,14 +121,46 @@
 
             <hr>
 
-            <h3 id="crsku" style="text-align:center; display:none" >Receipt</h3>
+            <h3 id="crsku" style="text-align:center; display:none" >SKU</h3>
+
+            <div id="cr_sku_display" style="text-align:center; display:none; margin-top:8px; font-weight:600;"></div>
 
             <p></p>
 
         </form>
     </div>
 
-    <script type="pyscript" src="main.py"></script>
+    <script>
+    // SKU generator
+    document.getElementById('generateSkuBtn').addEventListener('click', function () {
+        const sel = document.getElementById('sample');
+        const product = document.getElementById('productname');
+        const qtyEl = document.getElementById('quantity');
+        const outHeader = document.getElementById('crsku');
+        const out = document.getElementById('cr_sku_display');
+
+        const categoryText = sel.options[sel.selectedIndex].text || '';
+        const categoryCode = categoryText.split(/\s+/)[0].replace(/[^A-Za-z0-9]/g,'').slice(0,3).toUpperCase() || 'GEN';
+        const prodRaw = (product.value || '').trim();
+        if (!prodRaw) {
+            outHeader.style.display = 'block';
+            out.style.display = 'block';
+            out.innerText = 'Please enter a product name to generate SKU.';
+            return;
+        }
+
+        const prodCode = prodRaw.replace(/[^A-Za-z0-9]/g,'').slice(0,4).toUpperCase() || 'PROD';
+        let qty = Number(qtyEl.value || 0);
+        if (!Number.isFinite(qty) || qty < 0) qty = 0;
+        const qtyCode = String(Math.floor(qty)).padStart(3,'0');
+
+        const sku = `${categoryCode}-${prodCode}-${qtyCode}`;
+
+        outHeader.style.display = 'block';
+        out.style.display = 'block';
+        out.innerText = sku;
+    });
+    </script>
 
     <!-- form part start -->
 
