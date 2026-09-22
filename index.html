@@ -6,8 +6,17 @@
     <title>Receipt Generator</title>
 
     <!-- connections needed to be secured (start) -->
+     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- There is a problem within the Python itself -->
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <!-- Problem lies on the Python connection itself -->
+
     <link rel="stylesheet" href="mystyle.css">
     <!-- connections needed to be secured (end)-->
     <!-- I use 5.3.8 as the latest form of Bootstrap [Sep 20 2026 21:12]-->
@@ -64,7 +73,7 @@
 
 </head>
 <body>
-    <!-- Part 1 : navbar function -->
+    <!-- Part 1 : navbar function [for potential fix] -->
     <nav class="nvhct">
         <ul class="nav container-fluid" style="float:right;">
             <li class="nav-item"><a class="nav-link text-white" href="index.html">Receipt Generator</a></li>
@@ -82,6 +91,7 @@
 
     <div class="container divformat" style="padding:25px;">
         <h2 style="text-align:center;">Receipt Generator</h2>
+        <p style="text-align:center; font-size:12px">Project under inspection, fixes will happen by the due date.</p>
         <hr>
 
         <!--sec menu-->
@@ -129,7 +139,7 @@
             <br>
 
             <div class="d-grid">
-            <button id="createOrderBtn" class="btn btn-primary" type="button">Create order</button>
+            <button class="btn btn-primary" type="button" py-click="initial_order">Create order</button>
             </div>
             <br>
 
@@ -139,47 +149,12 @@
 
             <hr>
 
-            <!--sec receipt-->
-
-            <h3 id="subtotal" style="text-align:center;">Receipt</h3>
-            
         </form>
-
-            <h3 id="Showntext" style="text-align:center;">Receipt</h3>
 
             <div id="initialorder">Total</div>
     </div>
     
-    <script>
-    // Calculate and show receipt using plain JavaScript
-        document.getElementById('createOrderBtn').addEventListener('click', function () {
-        const ids = ['popsicle','c_juice','m_shake','hc_sandwich','hotdog'];
-        let subtotal = 0;
-        ids.forEach(id => {
-            const el = document.getElementById(id);
-            if (el && el.checked) {
-                subtotal += Number(el.value) || 0;
-            }
-        });
-            const target = document.getElementById('initialorder');
-
-            if (subtotal === 0) {
-                target.innerHTML = '<div style="text-align:center; color:#666;">No items selected — subtotal is 0.00 Php</div>';
-                return;
-            }
-
-            const vat = subtotal * 0.12;
-            const total = subtotal + vat;
-
-            target.innerHTML = `
-                <div style="text-align:center;">
-                    <div>Subtotal: ${subtotal.toFixed(2)} Php</div>
-                    <div>VAT (12%): ${vat.toFixed(2)} Php</div>
-                    <div style="font-weight:700; margin-top:6px;">Total: ${total.toFixed(2)} Php</div>
-                </div>
-            `;
-    });
-    </script>
+    <script type="py" src="main.py"></script>
 
     <!-- Part 2 : Form content -->
 
@@ -190,6 +165,7 @@
 
     <!-- Python connector-->
     <!-- I am going to temporarily delete the Python connector for now.-->
+
 
 </body>
 </html>
