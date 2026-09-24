@@ -1,0 +1,19 @@
+
+
+text file [.txt] right?
+
+Potential Areas for improvement or Questions
+
+Fixed : Python not functioning - Open in Live Server not directly on an HTML file. Python cannot run there.
+
+1 - How does the navbar work or function? because there are some things I would like to find
+    - what are those things?
+
+2 - Why does the create order button or [button activating python function] shift the background image a certain amount?
+
+3 - why does increasing margin with equal amounts to the left and right push the container somewhere? Maybe there is a command to shorten the container itself?
+
+4 - which functions check if a value has checkboxed checked or not? If solution not found then reversing to inputs will be needed.
+
+5 - How to control container size?
+- propose width?

@@ -1,4 +1,5 @@
-from pyscript import display
+from pyscript import display, document
+# crucial for python connection
 
 # Python functions need to be used to generate the Receipt and to generate the SKU.
 
@@ -11,7 +12,12 @@ def initial_order (e):
     hc_sandwich = float(document.getElementById('hc_sandwich').value)
     hotdog = float(document.getElementById('hotdog').value)
 
-    subtotal = popsicle + c_juice + m_shake + hc_sandwich + hotdog
+    # affirming checkbox value (issue)
+    # problem, the background shifts when create order is pressed
+
+    # subtotal = (popsicle * popsicle.checked) + (c_juice * c_juice.checked) + (m_shake * m_shake.checked) +  (hc_sandwich * hc_sandwich.checked) + (hotdog * hotdog.checked)
+
+    subtotal = popsicle # for now
 
     vat = subtotal * 0.12
     
@@ -22,7 +28,7 @@ def initial_order (e):
    
     
 def create_sku(e):
-    document.getElementById("cr_sku").innerHTML = ""
+    document.getElementById("create_sku").innerHTML = ""
 
 
     

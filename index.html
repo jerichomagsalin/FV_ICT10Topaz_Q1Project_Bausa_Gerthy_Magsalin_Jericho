@@ -14,10 +14,12 @@
 
     <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
     <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <script type="py" src="main.py"></script>
 
-    <!-- Problem lies on the Python connection itself -->
+    <!-- OPEN ON LIVE SERVER, NOT HTML for python to function -->
 
     <link rel="stylesheet" href="mystyle.css">
+    
     <!-- connections needed to be secured (end)-->
     <!-- I use 5.3.8 as the latest form of Bootstrap [Sep 20 2026 21:12]-->
 
@@ -73,6 +75,7 @@
 
 </head>
 <body>
+
     <!-- Part 1 : navbar function [for potential fix] -->
     <nav class="nvhct">
         <ul class="nav container-fluid" style="float:right;">
@@ -151,10 +154,20 @@
 
         </form>
 
-            <div id="initialorder">Total</div>
+            <div id="initialorder">variable test</div>
+
+            <!-- Get div to show via a certain command-->
+            <div class="container divformat" style="margin:auto; background-color: #FEFD33; opacity: 1;">
+                <h3 style="text-align:center;">Receipt</h3>
+                <span>Subtotal : </span><span style="float:right;">---</span>
+                <br>
+                <br>
+                <span>VAT (12% tax) :</span><span style="float:right;">---</span>
+                <br>
+                <br>
+                <span>Total Price :</span><span style="float:right;">---</span>
+            </div>
     </div>
-    
-    <script type="py" src="main.py"></script>
 
     <!-- Part 2 : Form content -->
 
