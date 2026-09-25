@@ -64,6 +64,10 @@
         }
     }
 
+    input {
+        float:right;
+    }
+
     /* form css */
 
 
@@ -94,7 +98,7 @@
 
     <div class="container divformat" style="padding:25px;">
         <h2 style="text-align:center;">Receipt Generator</h2>
-        <p style="text-align:center; font-size:12px">Project under inspection, fixes will happen by the due date.</p>
+        <p style="text-align:center; font-size:12px">Items</p>
         <hr>
 
         <!--sec menu-->
@@ -113,27 +117,27 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="checkbox" id="popsicle" value="50"><label for="popsicle">Popsicle</label></td>
+                        <td><label for="popsicle">Popsicle</label><input type="text" id="popsicle" placeholder="amount" value="0"></td>
                         <td>50 Php</td>
                         <td style="text-align:center;">Who would not want a cold ice block to cool down?</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" id="c_juice" value="100"><label for="c_juice"> Coconut juice</label></td>
+                        <td><label for="c_juice"> Coconut juice</label><input type="text" id="c_juice" placeholder="amount" value="0"></td>
                         <td>100 Php</td>
                         <td style="text-align:center;">Refreshing liquid</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" id="m_shake" value="75"><label for="m_shake">Mango Shake</label></td>
+                        <td><label for="m_shake">Mango Shake</label><input type="text" id="m_shake" placeholder="amount" value="0"></td>
                         <td>75 Php</td>
                         <td style="text-align:center;">The fruit is refreshing</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" id="hc_sandwich" value="120"><label for="hc_sandwich"> Ham & Cheese Sandwich</label></td>
+                        <td><label for="hc_sandwich"> Ham & Cheese Sandwich</label><input type="text" id="hc_sandwich" placeholder="amount" value="0"></td>
                         <td>120 Php</td>
                         <td style="text-align:center;">A meal with material</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" id="hotdog" value="100"><label for="hotdog"> Hotdog</label></td>
+                        <td><label for="hotdog"> Hotdog</label><input type="text" id="hotdog" placeholder="amount" value="0"></td>
                         <td>100 Php</td>
                         <td style="text-align:center;">Amazing sauces will come later!</td>
                     </tr>
@@ -154,18 +158,16 @@
 
         </form>
 
-            <div id="initialorder">variable test</div>
-
             <!-- Get div to show via a certain command-->
             <div class="container divformat" style="margin:auto; background-color: #FEFD33; opacity: 1;">
                 <h3 style="text-align:center;">Receipt</h3>
-                <span>Subtotal : </span><span style="float:right;">---</span>
+                <span>Subtotal : </span><span id="subtotal" style="float:right;">---</span>
                 <br>
                 <br>
-                <span>VAT (12% tax) :</span><span style="float:right;">---</span>
+                <span>VAT (12% tax) :</span><span id="vat" style="float:right;">---</span>
                 <br>
                 <br>
-                <span>Total Price :</span><span style="float:right;">---</span>
+                <span>Total Price :</span><span id="total" style="float:right;">---</span>
             </div>
     </div>
 
