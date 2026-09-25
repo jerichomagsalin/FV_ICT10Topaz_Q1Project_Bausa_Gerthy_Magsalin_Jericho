@@ -14,7 +14,9 @@ def initial_order (e):
     document.getElementById("vat").innerHTML = ""
     document.getElementById("total").innerHTML = ""
 
-    subtotal = float((popsicle * document.getElementById('popsicle').value)) + float((c_juice * document.getElementById('c_juice').value)) + float((m_shake * document.getElementById('m_shake').value)) + float((hc_sandwich * document.getElementById('hc_sandwich').value)) + float((hotdog * document.getElementById('hotdog').value))
+    # subtotal = float((popsicle * document.getElementById('popsicle').value)) + float((c_juice * document.getElementById('c_juice').value)) + float((m_shake * document.getElementById('m_shake').value)) + float((hc_sandwich * document.getElementById('hc_sandwich').value)) + float((hotdog * document.getElementById('hotdog').value))
+
+    subtotal = (popsicle * float(document.getElementById('popsicle').value)) + (c_juice * float(document.getElementById('c_juice').value)) + (m_shake * float(document.getElementById('m_shake').value)) + (hc_sandwich * float(document.getElementById('hc_sandwich').value)) + (hotdog * float(document.getElementById('hotdog').value))
 
     vat = subtotal * 0.12
         
